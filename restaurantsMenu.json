@@ -1,0 +1,87 @@
+{
+    "macdonalds": [
+        {
+            "title": "Tasty Burger",
+            "description": "Juicy, flavorful, and satisfying burger with a perfect blend of premium ingredients, creating a mouthwatering experience in every bite.",
+            "price": "5",
+            "isNew": true,
+            "img": "mcdonalds-burger.jpg"
+        },
+        {
+            "title": "French Fries",
+            "description": "Delicious, crispy, golden French fries—a timeless snack that brings joy with every bite. The perfect balance of crispy exterior and soft, fluffy interior.",
+            "price": "3",
+            "isNew": false,
+            "img": "mcdonalds-fries.jpg"
+        },
+        {
+            "title": "Happy Meal",
+            "description": "Joyful combo for kids: Happy Meal! Delicious burger, crispy fries, refreshing drink, and a surprise toy. Perfect for a fun-filled treat!",
+            "price": "7",
+            "isNew": false,
+            "img": "mcdonalds-happy.jpg"
+        },
+        {
+            "title": "Super Roll",
+            "description": "Delicious and savory meat roll, packed with flavorful ingredients, creating a perfect blend of textures and tastes. A true culinary delight.",
+            "price": "5",
+            "isNew": false,
+            "img": "mcdonalds-roll.jpg"
+        },
+        {
+            "title": "Ice Cream",
+            "description": "Deliciously creamy and indulgent, ice cream is a frozen treat that tantalizes taste buds with its rich flavors and smooth texture.",
+            "price": "3",
+            "isNew": false,
+            "img": "mcdonalds-flurry.jpg"
+        }
+    ],
+    "kfc": [
+        {
+            "title": "Nice chicken",
+            "description": "Tasty and crispy chicken bits - bite-sized delights bursting with flavor. Perfect for a quick and satisfying snack or appetizer.",
+            "price": "6",
+            "isNew": false,
+            "img": "kfc-chicken.jpg"
+        },
+        {
+            "title": "Spicy Nuggets",
+            "description": "Fiery and flavorful, these Spicy Nuggets pack a punch of heat and tantalizing spices. Perfect for those craving a fiery kick with every bite.",
+            "price": "5",
+            "isNew": false,
+            "img": "kfc-nuggets.jpg"
+        },
+        {
+            "title": "Super Ice Cream",
+            "description": "Deliciously creamy and indulgent, ice cream is a frozen treat that tantalizes taste buds with its rich flavors and smooth texture.",
+            "price": "2",
+            "isNew": false,
+            "img": "kfc-icecream.jpeg"
+        }
+    ],
+    "bk": [
+        {
+            "title": "King Menu",
+            "description": "Delicious burgers, crispy fries, and refreshing drinks - Burger King's menu offers a mouthwatering selection of fast food favorites.",
+            "price": "10",
+            "isNew": false,
+            "img": "bk-menu.jpg"
+        },
+        {
+            "title": "King Burger",
+            "description": "Juicy, flavorful, and satisfying burger with a perfect blend of premium ingredients, creating a mouthwatering experience in every bite.",
+            "price": "5",
+            "isNew": false,
+            "img": "bk-burger.jpg"
+        }
+    ],
+    "lc": [
+        {
+            "title": "Ukrainian Croissants",
+            "description": "Flaky, buttery, and irresistible croissants – a delightful French pastry that melts in your mouth, perfect for breakfast or anytime indulgence.",
+            "price": "3",
+            "isNew": false,
+            "img": "lc-Croiss.jpg"
+        }
+    ]
+}

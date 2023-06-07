@@ -1,0 +1,108 @@
+
+mixin addMenuItem(title, description, price, image)
+    .card(style="width: calc(33% - 10px)")
+        img.card-img-top(style="height: 185px" src=`/img/${image}` alt=`${title}`)
+        .card-body  
+            h5.card-title= title
+                //- span.badge.bg-danger(style="margin-left: 10px;") New
+            p.card-text=  description
+            button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target=`#${image}`)= `Price: $${price}`
+            //-    Modal
+        .modal.fade(id= `${image}` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h1.modal-title.fs-5(id="exampleModalLabel")= title
+                        button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+                
+                    .modal-body
+                        img.d-block.m-auto(style="max-width: 460px" src=`/img/${image}` alt=`title`)
+                        h5.text-center.bg-primary-subtle.w-25.mt-3.m-auto.rounded= `Price: $${price}`
+                        h3.text-center.mt-3= title
+                        p= description
+                        p= `Your chose:`
+                        form.d-flex.justify-content-between
+                            p(style="font-weight: 700")= `${title}` 
+                            input.itemNumbers(data-price=`${price}` style="width: 15%" type="number" value="1" min="0")
+                            button.btn.btn-primary.btnToCart(type="submit") Add to cart
+                        hr
+                        p.totalsumm(data-total=`${price}` style="font-weight: 700")= `Total: $${price}`
+
+                    .modal-footer
+                        button.btn.btn-secondary(type="button" data-bs-dismiss="modal") Cancel
+                        
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Shop
+
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous")
+
+
+
+    body    
+        .container
+            ul.nav.nav-tabs(style="margin-top: 15px")
+                li.nav-item
+                    a.nav-link.active(aria-current="page" href="/") Shop
+                li.nav-item
+                    a.nav-link(href="/cart") My cart
+            
+            .row.m-4
+                .col-4.bg-body-tertiary
+                    h2.text-center.mt-4.mb-4 Restaurant:
+                    .d-flex.justify-content-center.align-items-center.mb-4.sticky-top
+                        .list-group.w-75#list-example
+                            a.list-group-item.list-group-item-action.p-4.m-2.text-center(href="#mcdonalds") McDonalds
+                            a.list-group-item.list-group-item-action.p-4.m-2.text-center(href="#kfc") KFC
+                            a.list-group-item.list-group-item-action.p-4.m-2.text-center(href="#bk") Burger King
+                            a.list-group-item.list-group-item-action.p-4.m-2.text-center(href="#lc") Lviv Croissants
+            
+                .col-8
+                    .scrollspy-example(data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0")
+                        //- MACDONALDS 
+                        .img-cont(style="position: relative; margin-bottom: 20px")#mcdonalds
+                            h2(style="color: #ececec; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translateX(-50%);") McDonalds
+                            img(style="width: calc(100% - 10px); height: 200px; border-radius: 20px; object-fit: cover" src="/img/mcdonalds_cover.png" alt="mcdonalds")
+                        .cards.d-flex.flex-wrap(style="gap: 10px")
+                            each item in data.macdonalds
+                                +addMenuItem(item.title, item.description, item.price, item.img)
+                                    
+                        //- KFC
+                        .img-cont(style="margin-top: 20px; position: relative; margin-bottom: 20px")#kfc
+                            h2(style="color: #ececec; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translateX(-50%);") KFC
+                            img(style="width: calc(100% - 10px); height: 200px; border-radius: 20px; object-fit: cover" src="/img/kfc_cover.jpg" alt="kfc")
+                    
+                        .cards.d-flex.flex-wrap(style="gap: 10px")
+                            each item in data.kfc
+                                +addMenuItem(item.title, item.description, item.price, item.img)
+                           
+                            
+                        //- Burger King
+                        .img-cont(style="margin-top: 20px; position: relative; margin-bottom: 20px")#bk
+                            h2(style="color: #ececec; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translateX(-50%);") Burger King
+                            img(style="width: calc(100% - 10px); height: 200px; border-radius: 20px; object-fit: cover" src="/img/bk_cover.png" alt="bk")
+                    
+                        .cards.d-flex.flex-wrap(style="gap: 10px")
+                            each item in data.bk
+                                +addMenuItem(item.title, item.description, item.price, item.img)
+                    
+                        //- Lviv Croissants
+                        .img-cont(style="margin-top: 20px; position: relative; margin-bottom: 20px")#lc
+                            h2(style="color: #ececec; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translateX(-50%);") Lviv Croissants
+                            img(style="width: calc(100% - 10px); height: 200px; border-radius: 20px; object-fit: cover" src="/img/lc_cover.png" alt="kfc")
+                    
+                        .cards.d-flex.flex-wrap(style="gap: 10px")
+                            each item in data.lc
+                                +addMenuItem(item.title, item.description, item.price, item.img)
+
+        
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous")
+        script(src="/js/orderModal.js")
+       
+        

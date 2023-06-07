@@ -1,0 +1,68 @@
+mixin addOrderItem(id, title, image, price, numbers)
+    .item.m-3(style="border: 1px solid black; border-radius: 10px" data-id=`${id}` data-price=`${price / numbers}`)
+        .wrapper.d-flex
+            .image.m-auto(style="width: 220px; height: 160px")
+                img(style="width: 100%; height: 100%; object-fit: cover" src=`${image}` alt="test")
+            .order-info.m-auto(style="padding: 10px")
+                h5.d-block.m-auto(style="font-weight: 700")= title
+                p.priceString= `Price: $${price}`
+                .order-input.d-flex.justify-content-center
+                    label(style="margin-right: 20px" for="counter") How much do you need? 
+                    input.w-25(id="counter" type="number" min="1" value= numbers)
+            .order-counter.d-block.m-auto
+                h4(style="padding-right: 20px")= `x${numbers}`
+            button.btn-close.m-2(type="button" aria-label="Close")
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Shopping Cart
+
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous")
+    body 
+        
+
+
+
+
+        .container
+            ul.nav.nav-tabs(style="margin-top: 15px")
+                li.nav-item
+                    a.nav-link(aria-current="page" href="/") Shop
+                li.nav-item
+                    a.nav-link.active(href="/cart") My cart
+
+            .row
+                .col
+                    form.makeOrder
+                        h2.mt-3.mb-3 Make your order:
+                        .mb-3
+                            label.form-label(for="exampleFormControlInput1") Your name
+                            input.form-control(type="text" id="exampleFormControlInput1" placeholder="Name")
+                        .mb-3
+                            label.form-label(for="exampleFormControlInput2") Email address
+                            input.form-control(type="email" id="exampleFormControlInput2" placeholder="name@example.com")
+                        .mb-3
+                            label.form-label(for="exampleFormControlInput3") Phone
+                            input.form-control(type="number" id="exampleFormControlInput3" placeholder="+380931234567")
+                        .mb-3
+                            label.form-label(for="exampleFormControlInput4") Address
+                            input.form-control(type="text" id="exampleFormControlInput4")
+                        button.btn.btn-primary.btnToMakeOrder(type="submit") Submit
+                        
+                
+                .col.showCartItems(style="border: 2px solid #cdcdcd; max-height: 780px; overflow: scroll;")
+                    each item in data
+                        +addOrderItem(item.id, item.order, item.image, item.total, item.numbers)
+                    hr
+                    .totalsum
+                        h5.text-center Total price: $0
+
+                    
+
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous")
+        script(src="/js/cart.js")
+        
