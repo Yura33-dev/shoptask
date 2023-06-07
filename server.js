@@ -6,7 +6,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 
-dotenv.config();
+// dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use('/', viewRouter);
 app.use('/api/v1/cart', cartRouter);
 
-const port = process.env.PORT || 3132;
+const port = process.env.PORT;
 app.listen(port, () => {
     console.log('Server listening on PORT:', port);
 });
