@@ -1,6 +1,5 @@
 {
   "name": "task_shop",
-  "type": "module",
   "version": "1.0.0",
   "description": "Technical task from ElifTech",
   "main": "index.js",

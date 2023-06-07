@@ -1,7 +1,7 @@
-import express from 'express';
-import * as viewController from './../controllers/viewController.js';
+const express = require('express');
+const viewController = require('./../controllers/viewController.js');
 
-export const viewRouter = express.Router();
+const viewRouter = express.Router();
 
 viewRouter
     .route('/')
@@ -10,3 +10,5 @@ viewRouter
 viewRouter
     .route('/:page')
     .get(viewController.getPage)
+
+module.exports = viewRouter; 

@@ -1,1 +1,1 @@
-[]
+[{"order":{"customerName":"Yura","customerEmail":"name@name","customerPhone":"234242","customerAddress":"2342342","orderList":[{"name":"Tasty Burger","price":"Price: $5","count":"1"},{"name":"Happy Meal","price":"Price: $28","count":"4"},{"name":"Nice chicken","price":"Price: $6","count":"1"}],"totalPrice":"Total price: $39"}}]

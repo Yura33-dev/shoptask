@@ -1,11 +1,13 @@
-import express from 'express';
+const express = require('express');
 
-import * as apiController from './../controllers/apiController.js';
+const apiController = require('./../controllers/apiController.js');
 
-export const cartRouter = express.Router();
+const cartRouter = express.Router();
 
 cartRouter
     .route('/')
     .post(apiController.addToCart)
     .delete(apiController.deleteFromCart)
     .put(apiController.submitCart)
+
+module.exports = cartRouter;

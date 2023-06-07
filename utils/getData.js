@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 
 let resMenu;
 try {
@@ -8,4 +8,4 @@ try {
     console.log('Database did not load...', error);
 }
 
-export { resMenu };
+module.exports = resMenu;

@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 
 
 const setId = () => {
@@ -6,8 +6,7 @@ const setId = () => {
     return parseInt(id);
 };
 
-export const addToCart = (req, res) => {
-    // console.log(req.body);
+exports.addToCart = (req, res) => {
     const toCookie = {
         id: `order-${setId()}`,
         order: req.body.order,
@@ -22,8 +21,7 @@ export const addToCart = (req, res) => {
 };
 
 
-export const deleteFromCart = (req, res) => {
-    // console.log(req.body);
+exports.deleteFromCart = (req, res) => {
     const { id } = req.body;
     res.clearCookie(id);
     
@@ -32,9 +30,7 @@ export const deleteFromCart = (req, res) => {
     });
 };
 
-export const submitCart = (req, res) => {
-    // console.log(req.body);
-    // const data = JSON.stringify(req.body);
+exports.submitCart = (req, res) => {
 
     const { customerName, customerEmail, customerPhone, customerAddress, orderList } = req.body;
     if (!customerName || !customerEmail || !customerPhone || !customerAddress || orderList.length < 1) {
@@ -83,8 +79,6 @@ export const submitCart = (req, res) => {
                 res.clearCookie(req.cookies[key].id);
             }
         });
-        // console.log(req.cookies);
-        // res.clearCookie(id);
 
         res.status(200).json({
             status: 'ok'

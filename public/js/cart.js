@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('input', (e) => {
 
             input.closest('.order-info').firstChild.nextElementSibling.textContent = `Price: $${parseInt(e.target.value) * input.closest('.item').getAttribute('data-price')}`;
-            cart.querySelector('.order-counter').firstChild.textContent = `x${e.target.value}`;
+            input.closest('.order-info').nextElementSibling.firstChild.textContent = `x${e.target.value}`;
             updateTotalPrice();
         });
     });
